@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Reunião</string>
+    <string name="textView_presidentes">Crie aqui a lista de participantes da reunião:</string>
+</resources>

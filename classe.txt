@@ -1,0 +1,59 @@
+package com.webview_for_pdf.salvar_pdf;
+
+import android.content.Context;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+public class Acessar_pagina {
+
+    String link;
+    Context context;
+    Elements retorno;
+    boolean finalizou = false;
+
+    public Acessar_pagina(Context context){
+        this.context = context;
+    }
+
+    public Elements buscar_texto(String link, String select){
+        this.link = link;
+        RequestQueue queue = Volley.newRequestQueue(context);
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, link,
+
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        Document doc = Jsoup.parse(response);
+                        retorno = doc.select(select);
+                        finalizou = true;
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+
+        });
+
+        //Tempo de espera e número de tentativas, repectivamente. Deu certo com os parâmetros 25000 e 5 também.
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(50000, 2, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+        return retorno;
+    }
+    public Elements sopa(){
+        return null;
+    }
+}

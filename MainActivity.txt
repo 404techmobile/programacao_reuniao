@@ -1,0 +1,179 @@
+package com.webview_for_pdf.salvar_pdf;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class MainActivity extends Activity implements AdapterView.OnItemSelectedListener {
+
+    String[] presidentes = { "Florival", "Joelson", "Moisés", "Paulo César", "Marcos Erbson", "Ezequiel", "José Souza"};
+    String[] oracao = { "Rogério", "Renato", "Edilson", "José Ramos",  "Florival", "Joelson", "Moisés", "Paulo César", "Marcos Erbson", "Ezequiel", "José Souza", "Rozenilton"};
+    String[] estudantes_e_ajudantes = {"Silvana", "Josenilda","Cristiane", "Sonildes", "Elienai","Raiana"};
+    String[] estudantes_leitura = {"Lucas Cunha", "Jamilton", "Zezito", "José Ramos"};
+    String[] servos_e_anciaos = {"Rafael", "Augusto", "Luan", "Marcos Vinícius", "Rozenilton",  "Florival", "Joelson", "Moisés", "Paulo César", "Marcos Erbson", "Ezequiel", "José Souza"};
+    String[] numero_semana = {"1", "2", "3", "4", "5"};
+    Reuniao[] reuniao = new Reuniao[4];
+    int indice = 1;
+
+    //SharedPreferences preferences;
+    ArrayAdapter presidentes_adapter;
+    ArrayAdapter oracao_adapter;
+    ArrayAdapter numero_da_semana_adapter;
+    ArrayAdapter tesouros_adapter;
+    ArrayAdapter joias_adapter;
+    ArrayAdapter melhor_no_ministerio_1_adapter;
+    ArrayAdapter melhor_no_ministerio_2_adapter;
+    ArrayAdapter melhor_no_ministerio_3_adapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Spinner spinner_presidente = findViewById(R.id.presidente_spinner);
+        spinner_presidente.setOnItemSelectedListener(this);
+        presidentes_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, presidentes);
+        presidentes_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_presidente.setAdapter(presidentes_adapter);
+
+        Spinner spinner_oracao = findViewById(R.id.oracao_inicial);
+        spinner_oracao.setOnItemSelectedListener(this);
+        oracao_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, oracao);
+        oracao_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_oracao.setAdapter(oracao_adapter);
+
+        Spinner spinner_numero_da_semana = findViewById(R.id.semana);
+        spinner_numero_da_semana.setOnItemSelectedListener(this);
+        numero_da_semana_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, numero_semana);
+        numero_da_semana_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_numero_da_semana.setAdapter(numero_da_semana_adapter);
+
+        Spinner tesouros_discurso = findViewById(R.id.tesouros_discurso);
+        tesouros_discurso.setOnItemSelectedListener(this);
+        tesouros_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, servos_e_anciaos);
+        tesouros_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tesouros_discurso.setAdapter(tesouros_adapter);
+
+        Spinner joias = findViewById(R.id.joias);
+        joias.setOnItemSelectedListener(this);
+        joias_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, servos_e_anciaos);
+        joias_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        joias.setAdapter(joias_adapter);
+
+        Spinner melhor_no_ministerio_1 = findViewById(R.id.Estudante_melhor_ministerio_1);
+        melhor_no_ministerio_1.setOnItemSelectedListener(this);
+        melhor_no_ministerio_1_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, estudantes_e_ajudantes);
+        melhor_no_ministerio_1_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        melhor_no_ministerio_1.setAdapter(tesouros_adapter);
+
+        /*Spinner melhor_no_ministerio_2 = findViewById(R.id.Estudante_melhor_ministerio_2);
+        melhor_no_ministerio_2.setOnItemSelectedListener(this);
+        melhor_no_ministerio_2_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, estudantes_e_ajudantes);
+        melhor_no_ministerio_2_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        melhor_no_ministerio_2.setAdapter(tesouros_adapter);*/
+
+
+
+        reuniao[0] = new Reuniao();
+        reuniao[1] = new Reuniao();
+        reuniao[2] = new Reuniao();
+        reuniao[3] = new Reuniao();
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        //preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        if (parent.getAdapter().toString().equals(oracao_adapter.toString())) {
+            reuniao[indice - 1].setOracao_inicial(parent.getAdapter().getItem(position).toString());
+        }
+
+        if (parent.getAdapter().toString().equals(presidentes_adapter.toString())) {
+            reuniao[indice - 1].setPresidente(parent.getAdapter().getItem(position).toString());
+        }
+
+        if (parent.getAdapter().toString().equals(numero_da_semana_adapter.toString())) {
+            indice = Integer.parseInt(parent.getAdapter().getItem(position).toString());
+        }
+
+        if (parent.getAdapter().toString().equals(tesouros_adapter.toString())) {
+            reuniao[indice - 1].setTesouros(parent.getAdapter().getItem(position).toString());
+        }
+
+        if (parent.getAdapter().toString().equals(joias_adapter.toString())) {
+            reuniao[indice - 1].setJoias(parent.getAdapter().getItem(position).toString());
+        }
+
+
+        if (parent.getAdapter().toString().equals(melhor_no_ministerio_1_adapter.toString())) {
+            reuniao[indice - 1].setMelhor_no_ministerio_1(parent.getAdapter().getItem(position).toString());
+        }
+
+        /*if (parent.getAdapter().toString().equals(melhor_no_ministerio_2_adapter.toString())) {
+            reuniao[indice - 1].setMelhor_no_ministerio_2(parent.getAdapter().getItem(position).toString());
+        }*/
+
+/*
+        if (parent.getAdapter().toString().equals(melhor_no_ministerio_3_adapter.toString())) {
+            reuniao[indice - 1].setMelhor_no_ministerio_3(parent.getAdapter().getItem(position).toString());
+        }
+*/
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+/*
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+
+            case R.id.Configurar:
+                configurar();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+*/
+
+    public void configurar(View view){
+        Intent intent = new Intent(getApplicationContext(), CriarLista.class);
+        intent.putExtra("reuniao", reuniao);
+        //Toast.makeText(this, reuniao[0].getPresidente(), Toast.LENGTH_SHORT).show();
+        startActivity(intent);
+    }
+
+}
