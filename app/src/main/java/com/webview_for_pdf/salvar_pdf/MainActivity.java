@@ -17,8 +17,8 @@ import android.widget.Toolbar;
 
 public class MainActivity extends Activity implements AdapterView.OnItemSelectedListener {
 
-    String[] presidentes = { "Florival", "Joelson", "Moisés", "Paulo César", "Marcos Erbson", "Ezequiel", "José Souza"};
-    String[] oracao = { "Rogério", "Renato", "Edilson", "José Ramos",  "Florival", "Joelson", "Moisés", "Paulo César", "Marcos Erbson", "Ezequiel", "José Souza", "Rozenilton"};
+    String[] presidentes = { "Antônio", "José", "João","Pedro","Abias"};
+    String[] oracao = { "Rogério", "Renato", "Edilson", "José",  "Zedequias", "Judá", "Moisés", "Paulo", "Marcos", "Abel", "Jonas", "Joel"};
     String[] estudantes_e_ajudantes = {"Presidente", "Ricardo", "José Ronaldo", "Beatriz", "Júlia", "", "Andrea", "Izabeli", "Cláudia", "Jucélia", "Joselita", "Luana", "Rita", "Alfredizia", "Cecília", "Juliana", "Gilda", "Andréia Oliveira", "Renilda", "Silvana", "Josenilda","Cristiane", "Sonildes", "Elienai","Raiana"};
     String[] estudantes_leitura_lista = {"Daniel", "Bruno", "Ronaldo José", "Lucas Cunha", "Jamilton", "Zezito", "José Ramos", "Renato"};
     String[] servos_e_anciaos = {"Rogério", "Rafael", "Luan", "Marcos Vinícius", "Rozenilton",  "Florival", "Joelson", "Moisés", "Paulo César", "Marcos Erbson", "Ezequiel", "José Souza"};
