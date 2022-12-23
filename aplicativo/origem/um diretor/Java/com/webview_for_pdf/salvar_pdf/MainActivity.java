@@ -19,9 +19,9 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
 
     String[] presidentes = { "Antônio", "José", "João","Pedro","Abias"};
     String[] oracao = { "Rogério", "Renato", "Edilson", "José",  "Zedequias", "Judá", "Moisés", "Paulo", "Marcos", "Abel", "Jonas", "Joel"};
-    String[] estudantes_e_ajudantes = {"Presidente", "Elias", "José", "Benjamin", "Febe", "", "Júnias", "Paulo", "Cláudia", "Pedro", "Mateus", "Lucas", "Adão", "Eva", "Cecília", "Juliana", "Gilda", "Andréia Oliveira", "Renilda", "Silvana", "Josenilda","Cristiane", "Sonildes", "Elienai","Raiana"};
-    String[] estudantes_leitura_lista = {"Daniel", "Bruno", "Ronaldo José", "Lucas Cunha", "Jamilton", "Zezito", "José Ramos", "Renato"};
-    String[] servos_e_anciaos = {"Rogério", "Rafael", "Luan", "Marcos Vinícius", "Rozenilton",  "Florival", "Joelson", "Moisés", "Paulo César", "Marcos Erbson", "Ezequiel", "José Souza"};
+    String[] estudantes_e_ajudantes = {"Presidente", "Elias", "José", "Benjamin", "Febe", "", "Júnias", "Paulo", "Cláudia", "Pedro", "Mateus", "Lucas", "Adão", "Eva", "Claudio", "Júlio César", "Gaio", "André", "Abel", "Silvano"};
+    String[] estudantes_leitura_lista = {"Daniel", "José", "Zedequias"};
+    String[] servos_e_anciaos = {"Nabucodonosor", "Pedro", "Josias", "Marcos", "Lucas",  "Cláudia", "Priscila", "Moisés", "Paulo", "Marcos", "Ezequiel", "José"};
     String[] numero_semana = {"1", "2", "3", "4", "5"};
     String[] lista_participante = {"Selecione","PRESIDENTE", "ORACAO_INICIAL", "TESOUROS_DISCURSO", "JOIAS", "ESTUDANTE_LEITURA", "ESTUDANTE_1", "ESTUDANTE_2", "ESTUDANTE_3", "AJUDANTE_1", "AJUDANTE_2", "AJUDANTE_3", "VIDA_CRISTA_1", "VIDA_CRISTA_2", "ESTUDO_BIBLICO", "ORACAO_FINAL"};
     Reuniao[] reuniao = new Reuniao[4];
