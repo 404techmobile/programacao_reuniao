@@ -19,7 +19,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
 
     String[] presidentes = { "Antônio", "José", "João","Pedro","Abias"};
     String[] oracao = { "Rogério", "Renato", "Edilson", "José",  "Zedequias", "Judá", "Moisés", "Paulo", "Marcos", "Abel", "Jonas", "Joel"};
-    String[] estudantes_e_ajudantes = {"Presidente", "Ricardo", "José Ronaldo", "Beatriz", "Júlia", "", "Andrea", "Izabeli", "Cláudia", "Jucélia", "Joselita", "Luana", "Rita", "Alfredizia", "Cecília", "Juliana", "Gilda", "Andréia Oliveira", "Renilda", "Silvana", "Josenilda","Cristiane", "Sonildes", "Elienai","Raiana"};
+    String[] estudantes_e_ajudantes = {"Presidente", "Elias", "José", "Benjamin", "Febe", "", "Júnias", "Paulo", "Cláudia", "Pedro", "Mateus", "Lucas", "Adão", "Eva", "Cecília", "Juliana", "Gilda", "Andréia Oliveira", "Renilda", "Silvana", "Josenilda","Cristiane", "Sonildes", "Elienai","Raiana"};
     String[] estudantes_leitura_lista = {"Daniel", "Bruno", "Ronaldo José", "Lucas Cunha", "Jamilton", "Zezito", "José Ramos", "Renato"};
     String[] servos_e_anciaos = {"Rogério", "Rafael", "Luan", "Marcos Vinícius", "Rozenilton",  "Florival", "Joelson", "Moisés", "Paulo César", "Marcos Erbson", "Ezequiel", "José Souza"};
     String[] numero_semana = {"1", "2", "3", "4", "5"};
